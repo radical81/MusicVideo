@@ -54,7 +54,8 @@ class MusicVideoTVC: UITableViewController {
     func reachabilityStatusChanged()
     {
         switch reachabilityStatus {
-        case NOACCESS : view.backgroundColor = UIColor.redColor()
+        case NOACCESS :
+//            view.backgroundColor = UIColor.redColor()
             //move back to main Queue
         
         dispatch_async(dispatch_get_main_queue()) {
@@ -81,7 +82,7 @@ class MusicVideoTVC: UITableViewController {
         self.presentViewController(alert, animated: true, completion: nil)
         }
         default:
-            view.backgroundColor = UIColor.greenColor()
+//            view.backgroundColor = UIColor.greenColor()
             if videos.count > 0 {
                 print("do not refresh API");
             } else {
@@ -93,7 +94,7 @@ class MusicVideoTVC: UITableViewController {
     func runAPI() {
         //Call API
         let api = APIManager()
-        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=50/genre=1622/json",
+        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=200/genre=1622/json",
                      completion: didLoadData)
         
     }
@@ -110,6 +111,10 @@ class MusicVideoTVC: UITableViewController {
         return 1
     }
 
+    private struct storyboard {
+        static let cellReuseIdentifier = "cell"
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return videos.count
@@ -117,12 +122,9 @@ class MusicVideoTVC: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier(storyboard.cellReuseIdentifier, forIndexPath: indexPath) as! MusicVideoTableViewCell
 
-        let video = videos[indexPath.row]
-        cell.textLabel?.text = ("\(indexPath.row + 1)")
-        cell.detailTextLabel?.text = video.vName
-
+        cell.video = videos[indexPath.row]
 
         return cell
     }
