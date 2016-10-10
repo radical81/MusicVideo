@@ -83,9 +83,9 @@ class MusicVideoTVC: UITableViewController {
         default:
             view.backgroundColor = UIColor.greenColor()
             if videos.count > 0 {
-                runAPI()
+                print("do not refresh API");
             } else {
-                print("do not refresh API")
+                runAPI()
             }
         }
     }
