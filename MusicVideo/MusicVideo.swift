@@ -25,6 +25,8 @@ class Videos {
     private var _vReleaseDte:String
     
     
+    var vImageData: NSData?
+    
     //Make a getter
     
     var vName: String {
