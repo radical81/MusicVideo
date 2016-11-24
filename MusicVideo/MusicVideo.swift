@@ -33,6 +33,10 @@ class Videos {
         return _vName
     }
     
+    var vArtist: String {
+        return _vArtist
+    }
+    
     var vImageUrl: String {
         return _vImageUrl
     }
@@ -41,6 +45,13 @@ class Videos {
         return _vVideoUrl
     }
     
+    var vRights: String {
+        return _vRights
+    }
+    
+    var vPrice: String {
+        return _vPrice
+    }
     
     var vImid: String {
         return _vImid

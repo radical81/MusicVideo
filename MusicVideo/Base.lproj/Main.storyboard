@@ -66,7 +66,7 @@
                                     <outlet property="musicImage" destination="RSC-1x-FvE" id="gTB-PP-dJz"/>
                                     <outlet property="musicTitle" destination="YOT-D9-hCg" id="wnV-LS-5gW"/>
                                     <outlet property="rank" destination="Aln-Mo-KBy" id="XVt-Dg-M6l"/>
-                                    <segue destination="drV-Ey-A5M" kind="show" id="4Ux-Pe-6c9"/>
+                                    <segue destination="drV-Ey-A5M" kind="show" identifier="musicDetail" id="4Ux-Pe-6c9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -98,7 +98,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="586" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OJa-mU-aoU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OJa-mU-aoU">
                                 <rect key="frame" x="5" y="132" width="599" height="282"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="vName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OE7-Hn-PFt">
@@ -115,17 +115,17 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="209" id="8BP-le-pP5"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBt-WC-fG6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1.99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBt-WC-fG6">
                                 <rect key="frame" x="504" y="416" width="76" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="KTD-0T-rzY"/>
                                     <constraint firstAttribute="width" constant="76" id="ROa-kF-xZM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -134,7 +134,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="98" id="HD4-q8-pmP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -169,10 +169,17 @@
                     </toolbarItems>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="586" height="667"/>
+                    <connections>
+                        <outlet property="vGenre" destination="iDG-0e-miB" id="4q1-6I-og7"/>
+                        <outlet property="vName" destination="OE7-Hn-PFt" id="Zth-cs-QRw"/>
+                        <outlet property="vPrice" destination="DBt-WC-fG6" id="3cb-yf-ApS"/>
+                        <outlet property="vRights" destination="4Nx-BN-Lkp" id="VYj-eE-DjB"/>
+                        <outlet property="videoImage" destination="OJa-mU-aoU" id="NoJ-dF-gAo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Qw-2d-vCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="-63"/>
+            <point key="canvasLocation" x="2411" y="-63"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mvL-h0-Bqw">
