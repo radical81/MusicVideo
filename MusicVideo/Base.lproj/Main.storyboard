@@ -89,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="1144.8" y="-62.518740629685162"/>
         </scene>
-        <!--Table View Controller-->
+        <!--SettingTVC-->
         <scene sceneID="hnM-v6-TRd">
             <objects>
-                <tableViewController id="e9s-01-VpN" sceneMemberID="viewController">
+                <tableViewController id="e9s-01-VpN" customClass="SettingTVC" customModule="MusicVideo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" id="RwM-MO-iRI">
                         <rect key="frame" x="0.0" y="0.0" width="586" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,10 +251,19 @@
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="586" height="667"/>
+                    <connections>
+                        <outlet property="APICnt" destination="H7I-sD-yz4" id="WtX-mj-hgE"/>
+                        <outlet property="aboutDisplay" destination="lbh-8F-EZ9" id="Mf9-sm-NvK"/>
+                        <outlet property="bestImageDisplay" destination="y6i-qc-6YW" id="pfE-W0-5hY"/>
+                        <outlet property="feedbackDisplay" destination="kVZ-G9-JkJ" id="Can-9p-mgH"/>
+                        <outlet property="securityDisplay" destination="yFb-W2-kJJ" id="gOc-3Z-9u1"/>
+                        <outlet property="sliderCnt" destination="ig9-MF-pv4" id="yAx-P1-eK1"/>
+                        <outlet property="touchId" destination="RlA-CY-NY9" id="F4g-Ql-aKJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zwd-jy-wse" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144" y="695"/>
+            <point key="canvasLocation" x="1144" y="721"/>
         </scene>
         <!--Music Video DetailVC-->
         <scene sceneID="rFN-Qp-L7n">
