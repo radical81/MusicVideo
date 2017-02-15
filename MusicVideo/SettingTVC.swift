@@ -22,7 +22,7 @@ class SettingTVC: UITableViewController {
         super.viewDidLoad()
         tableView.alwaysBounceVertical = false
         title = "settings"
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "preferredFontChanged", name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingTVC.preferredFontChanged), name: UIContentSizeCategoryDidChangeNotification, object: nil)
         touchId.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
         
         if(NSUserDefaults.standardUserDefaults().objectForKey("APICNT") != nil) {
