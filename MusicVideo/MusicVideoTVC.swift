@@ -12,6 +12,7 @@ class MusicVideoTVC: UITableViewController {
 
     var videos = [Videos]()
     
+    var limit = 10
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -37,10 +38,15 @@ class MusicVideoTVC: UITableViewController {
     func didLoadData(_ videos: [Videos]) {
         print(reachabilityStatus)
         self.videos = videos
-        for item in videos {
-            print("name = \(item.vName)")
+        
+        for (index, item) in videos.enumerated() {
+            print("\(index) name = \(item.vName)")
         }
-        myTest()
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.red]
+        
+        title = ("The iTunes Top \(limit) Music Videos")
+        
         tableView.reloadData()
     }
     
@@ -49,9 +55,6 @@ class MusicVideoTVC: UITableViewController {
             print("Mytest - name = \(item.vName)")
         }
         
-        for (index, item) in videos.enumerated() {
-            print("\(index) name = \(item.vName)")
-        }
         //        for i in 0..<videos.count {
         //            let video = videos[i]
         //            print("\(i) name = \(video.vName)")
@@ -98,12 +101,31 @@ class MusicVideoTVC: UITableViewController {
         }
     }
     
+    @IBAction func refresh(_ sender: UIRefreshControl) {
+        refreshControl?.endRefreshing()
+        runAPI()
+    }
+    
+    func getAPICount() {
+        if (UserDefaults.standard.object(forKey: "APICNT") != nil)
+        {
+            let theValue = UserDefaults.standard.object(forKey: "APICNT") as! Int
+            limit = theValue
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, dd MMM yyyy HH:mm:ss"
+        let refreshDte = formatter.string(from: NSDate() as Date)
+        
+        refreshControl?.attributedTitle = NSAttributedString(string: "\(refreshDte)")
+    }
+    
     func runAPI() {
+        getAPICount()
         //Call API
         let api = APIManager()
-        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=200/genre=1622/json",
+        api.loadData("https://itunes.apple.com/us/rss/topmusicvideos/limit=\(limit)/genre=1622/json",
                      completion: didLoadData)
-        
     }
     
     deinit {
