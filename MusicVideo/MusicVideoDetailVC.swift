@@ -28,7 +28,7 @@ class MusicVideoDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sec = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
+        sec = UserDefaults.standard.bool(forKey: "SecSetting")
         
         title = videos.vArtist
         vName.text = videos.vName
@@ -36,23 +36,23 @@ class MusicVideoDetailVC: UIViewController {
         vRights.text = videos.vRights
         vGenre.text = videos.vGenre
         if videos.vImageData != nil {
-            videoImage.image = UIImage(data: videos.vImageData!)
+            videoImage.image = UIImage(data: videos.vImageData! as Data)
         }
         else {
             videoImage.image = UIImage(named: "imageNotAvailable")
         }
     }
     
-    @IBAction func playVideo(sender: UIBarButtonItem) {
-        let url = NSURL(string: videos.vVideoUrl)!
+    @IBAction func playVideo(_ sender: UIBarButtonItem) {
+        let url = URL(string: videos.vVideoUrl)!
         
-        let player = AVPlayer(URL: url)
+        let player = AVPlayer(url: url as URL)
         
         let playerViewController = AVPlayerViewController()
         
         playerViewController.player = player
         
-        self.presentViewController(playerViewController, animated: true) {
+        self.present(playerViewController, animated: true) {
             playerViewController.player?.play()
         }
     }

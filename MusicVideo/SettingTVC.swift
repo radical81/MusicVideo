@@ -22,41 +22,41 @@ class SettingTVC: UITableViewController {
         super.viewDidLoad()
         tableView.alwaysBounceVertical = false
         title = "settings"
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingTVC.preferredFontChanged), name: UIContentSizeCategoryDidChangeNotification, object: nil)
-        touchId.on = NSUserDefaults.standardUserDefaults().boolForKey("SecSetting")
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingTVC.preferredFontChanged), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
+        touchId.isOn = UserDefaults.standard.bool(forKey: "SecSetting")
         
-        if(NSUserDefaults.standardUserDefaults().objectForKey("APICNT") != nil) {
-            let theValue = NSUserDefaults.standardUserDefaults().objectForKey("APICNT") as! Int
+        if(UserDefaults.standard.object(forKey: "APICNT") != nil) {
+            let theValue = UserDefaults.standard.object(forKey: "APICNT") as! Int
             APICnt.text = "\(theValue)"
             sliderCnt.value = Float(theValue)
         }
     }
     
-    @IBAction func valueChanged(sender: AnyObject) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(Int(sliderCnt.value), forKey: "APICNT")
+    @IBAction func valueChanged(_ sender: AnyObject) {
+        let defaults = UserDefaults.standard
+        defaults.set(Int(sliderCnt.value), forKey: "APICNT")
         APICnt.text = ("\(Int(sliderCnt.value))")
     }
     
-    @IBAction func touchIdSecurity(sender: UISwitch) {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if touchId.on {
-            defaults.setBool(touchId.on, forKey: "SecSetting")
+    @IBAction func touchIdSecurity(_ sender: UISwitch) {
+        let defaults = UserDefaults.standard
+        if touchId.isOn {
+            defaults.set(touchId.isOn, forKey: "SecSetting")
         }
         else {
-            defaults.setBool(false, forKey: "SecSetting")
+            defaults.set(false, forKey: "SecSetting")
         }
     }
     
     func preferredFontChanged() {
-        aboutDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
-        feedbackDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
-        securityDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
-        bestImageDisplay.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
-        APICnt.font = UIFont.preferredFontForTextStyle(UIFontTextStyleSubheadline)
+        aboutDisplay.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        feedbackDisplay.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        securityDisplay.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        bestImageDisplay.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        APICnt.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
     }
 }

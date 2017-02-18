@@ -13,7 +13,7 @@ class MusicVideoTVC: UITableViewController {
     var videos = [Videos]()
     
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
     }
     
@@ -21,10 +21,10 @@ class MusicVideoTVC: UITableViewController {
         super.viewDidLoad()
         
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.reachabilityStatusChanged), name: "ReachStatusChanged", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MusicVideoTVC.reachabilityStatusChanged), name: NSNotification.Name(rawValue: "ReachStatusChanged"), object: nil)
         
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MusicVideoTVC.preferredFontChanged), name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MusicVideoTVC.preferredFontChanged), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
         
         reachabilityStatusChanged()
         
@@ -34,7 +34,7 @@ class MusicVideoTVC: UITableViewController {
         print("The preferred Font has changed")
     }
     
-    func didLoadData(videos: [Videos]) {
+    func didLoadData(_ videos: [Videos]) {
         print(reachabilityStatus)
         self.videos = videos
         for item in videos {
@@ -49,7 +49,7 @@ class MusicVideoTVC: UITableViewController {
             print("Mytest - name = \(item.vName)")
         }
         
-        for (index, item) in videos.enumerate() {
+        for (index, item) in videos.enumerated() {
             print("\(index) name = \(item.vName)")
         }
         //        for i in 0..<videos.count {
@@ -65,19 +65,19 @@ class MusicVideoTVC: UITableViewController {
 //            view.backgroundColor = UIColor.redColor()
             //move back to main Queue
         
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             
         
-        let alert = UIAlertController(title: "No InternetAccess", message: "Please make sure you are connected to the Internet", preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) {
+        let alert = UIAlertController(title: "No InternetAccess", message: "Please make sure you are connected to the Internet", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) {
             action -> () in
             print("Cancel")
         }
-        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive) {
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) {
             action -> () in
             print("delete")
         }
-        let okAction = UIAlertAction(title: "ok", style: .Default) {
+        let okAction = UIAlertAction(title: "ok", style: .default) {
             action -> Void in print("Ok")
             //do something if you want
             //alert.dismissViewControllerAnimated(true, completion: nil)
@@ -86,7 +86,7 @@ class MusicVideoTVC: UITableViewController {
         alert.addAction(cancelAction)
         alert.addAction(deleteAction)
         
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
         }
         default:
 //            view.backgroundColor = UIColor.greenColor()
@@ -107,31 +107,31 @@ class MusicVideoTVC: UITableViewController {
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "ReachStatusChanged", object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIContentSizeCategoryDidChangeNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "ReachStatusChanged"), object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
     }
     
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    private struct storyboard {
+    fileprivate struct storyboard {
         static let cellReuseIdentifier = "cell"
         static let segueIdentifier = "musicDetail"
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return videos.count
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(storyboard.cellReuseIdentifier, forIndexPath: indexPath) as! MusicVideoTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: storyboard.cellReuseIdentifier, for: indexPath) as! MusicVideoTableViewCell
 
         cell.video = videos[indexPath.row]
 
@@ -177,11 +177,11 @@ class MusicVideoTVC: UITableViewController {
     
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == storyboard.segueIdentifier {
             if let indexpath = tableView.indexPathForSelectedRow {
                 let video = videos[indexpath.row]
-                let dvc = segue.destinationViewController as! MusicVideoDetailVC
+                let dvc = segue.destination as! MusicVideoDetailVC
                 dvc.videos = video
             }
         }

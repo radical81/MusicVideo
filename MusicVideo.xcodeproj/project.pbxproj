@@ -270,18 +270,18 @@
 					86C300551CE5F9E800A48DF2 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 98NZEPCGG6;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 					};
 					86C300691CE5F9E800A48DF2 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 98NZEPCGG6;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						TestTargetID = 86C300551CE5F9E800A48DF2;
 					};
 					86C300741CE5F9E800A48DF2 = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 98NZEPCGG6;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 						TestTargetID = 86C300551CE5F9E800A48DF2;
 					};
 				};
@@ -497,7 +497,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MusicVideo/MusicVideo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -512,7 +512,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.myspaceless.MusicVideo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MusicVideo/MusicVideo-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -525,7 +525,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myspaceless.MusicVideoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicVideo.app/MusicVideo";
 			};
 			name = Debug;
@@ -539,7 +539,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myspaceless.MusicVideoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicVideo.app/MusicVideo";
 			};
 			name = Release;
@@ -552,7 +552,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myspaceless.MusicVideoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MusicVideo;
 				USES_XCTRUNNER = YES;
 			};
@@ -566,7 +566,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myspaceless.MusicVideoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = MusicVideo;
 				USES_XCTRUNNER = YES;
 			};
