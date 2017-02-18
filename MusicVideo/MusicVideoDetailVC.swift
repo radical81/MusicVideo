@@ -43,14 +43,18 @@ class MusicVideoDetailVC: UIViewController {
         }
     }
     
-    @IBAction func playVideo(sender: AnyObject) {
+    @IBAction func playVideo(sender: UIBarButtonItem) {
         let url = NSURL(string: videos.vVideoUrl)!
-        NSLog("URL: %@", url)
+        
         let player = AVPlayer(URL: url)
+        
         let playerViewController = AVPlayerViewController()
-        playerViewController.player = player        
+        
+        playerViewController.player = player
+        
         self.presentViewController(playerViewController, animated: true) {
-            playerViewController.player!.play()
+            playerViewController.player?.play()
         }
     }
+    
 }
