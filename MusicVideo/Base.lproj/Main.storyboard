@@ -488,6 +488,9 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="BeP-fW-vBb"/>
                         <barButtonItem systemItem="action" id="eSU-ZE-Rrw">
                             <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="socialMedia:" destination="drV-Ey-A5M" id="tuN-ec-mWH"/>
+                            </connections>
                         </barButtonItem>
                     </toolbarItems>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
