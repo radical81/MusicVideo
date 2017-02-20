@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1iE-To-hzy" id="xbr-kR-43h">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RSC-1x-FvE">
@@ -85,6 +85,7 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="VFv-1a-mzj"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="udV-zX-72g">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
                             <action selector="refresh:" destination="kdc-EP-3xa" eventType="valueChanged" id="QOR-bq-m34"/>
@@ -196,18 +197,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="586" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Best Image Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6i-qc-6YW">
-                                                    <rect key="frame" x="8" y="26" width="255" height="41"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6r-b7-RjU">
+                                                    <rect key="frame" x="535" y="31" width="51" height="31"/>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Image Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6i-qc-6YW">
+                                                    <rect key="frame" x="8" y="26" width="150" height="41"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="255" id="Ty2-XQ-QHR"/>
+                                                        <constraint firstAttribute="width" constant="150" id="Ty2-XQ-QHR"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6r-b7-RjU">
-                                                    <rect key="frame" x="535" y="31" width="51" height="31"/>
-                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="M6r-b7-RjU" firstAttribute="top" secondItem="cAU-ga-QNv" secondAttribute="topMargin" constant="23" id="Olq-5u-090"/>
@@ -231,24 +232,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Lom-gd-DnV">
-                                                    <rect key="frame" x="8" y="31" width="189" height="21"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Music Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQG-Ko-Y0Y">
-                                                            <rect key="frame" x="0.0" y="0.0" width="188.5" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Music Videos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQG-Ko-Y0Y">
+                                                    <rect key="frame" x="8" y="25" width="169" height="18"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Lom-gd-DnV" firstAttribute="leading" secondItem="4jl-Ij-9NH" secondAttribute="leadingMargin" id="DAx-NR-8FL"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="H7I-sD-yz4" secondAttribute="trailing" constant="2" id="WlD-Do-LYa"/>
                                                 <constraint firstItem="H7I-sD-yz4" firstAttribute="top" secondItem="4jl-Ij-9NH" secondAttribute="topMargin" constant="18" id="dkK-QF-iAC"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="H7I-sD-yz4" secondAttribute="bottom" constant="33" id="g4n-wQ-4Kx"/>
-                                                <constraint firstItem="Lom-gd-DnV" firstAttribute="centerY" secondItem="4jl-Ij-9NH" secondAttribute="centerY" id="o3G-d7-3S8"/>
+                                                <constraint firstItem="zQG-Ko-Y0Y" firstAttribute="baseline" secondItem="H7I-sD-yz4" secondAttribute="baseline" id="gcA-Ke-pgn"/>
+                                                <constraint firstItem="zQG-Ko-Y0Y" firstAttribute="leading" secondItem="4jl-Ij-9NH" secondAttribute="leadingMargin" id="ts4-9b-lJo"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -296,6 +292,7 @@
                         <outlet property="aboutDisplay" destination="lbh-8F-EZ9" id="Mf9-sm-NvK"/>
                         <outlet property="bestImageDisplay" destination="y6i-qc-6YW" id="pfE-W0-5hY"/>
                         <outlet property="feedbackDisplay" destination="kVZ-G9-JkJ" id="Can-9p-mgH"/>
+                        <outlet property="numberOfVideosDisplay" destination="zQG-Ko-Y0Y" id="67n-hh-i3o"/>
                         <outlet property="securityDisplay" destination="yFb-W2-kJJ" id="gOc-3Z-9u1"/>
                         <outlet property="sliderCnt" destination="ig9-MF-pv4" id="yAx-P1-eK1"/>
                         <outlet property="touchId" destination="RlA-CY-NY9" id="F4g-Ql-aKJ"/>

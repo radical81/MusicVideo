@@ -17,6 +17,7 @@ class SettingTVC: UITableViewController {
     @IBOutlet weak var touchId: UISwitch!
     @IBOutlet weak var securityDisplay: UILabel!
     @IBOutlet weak var feedbackDisplay: UILabel!
+    @IBOutlet weak var numberOfVideosDisplay: UILabel!
     
      override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,7 @@ class SettingTVC: UITableViewController {
         feedbackDisplay.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         securityDisplay.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         bestImageDisplay.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
+        numberOfVideosDisplay.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
         APICnt.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.subheadline)
     }
     
