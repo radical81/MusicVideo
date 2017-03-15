@@ -9,10 +9,13 @@
 import UIKit
 import AVKit
 import AVFoundation
+import LocalAuthentication
 
 class MusicVideoDetailVC: UIViewController {
 
     var videos: Videos!
+    
+    var securitySwitch:Bool = false
     
     var sec:Bool = false
     
@@ -45,7 +48,91 @@ class MusicVideoDetailVC: UIViewController {
     
     
     @IBAction func socialMedia(_ sender: UIBarButtonItem) {
-        shareMedia()
+        securitySwitch = UserDefaults.standard.bool(forKey: "SecSetting")
+        
+        switch securitySwitch {
+        case true:
+            touchIdChk()
+        default:
+            shareMedia()
+        }
+    }
+    
+    func touchIdChk() {
+        //Create an alert
+        let alert = UIAlertController(title:"", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "continue", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        
+        //Create the Local Authentication Context
+        let context = LAContext()
+        var touchIDError: NSError?
+        let reasonString = "Touch-Id authentication is needed to share info on Social Media"
+        
+        //Check if we can access local device authentication
+        if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &touchIDError) {
+            //Check what the authentication response was
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: reasonString, reply: { (success, policyError) -> Void in
+                if success {
+                    //User authenticated using Local Device Authentication Succesfully!
+                    DispatchQueue.main.async { [unowned self] in
+                        self.shareMedia()
+                    }
+                }
+                else {
+                    alert.title = "Unsuccessful!"
+                    
+                    switch ((policyError! as! LAError).code) {
+                        case .appCancel:
+                            alert.message = "Authentication was cancelled by application"
+                        case .authenticationFailed:
+                            alert.message = "The user failed to provide valid credentials"
+                        case .passcodeNotSet:
+                            alert.message = "Passcode is not set on the device"
+                        case .systemCancel:
+                            alert.message = "Authentication was cancelled by the system"
+                        case .touchIDLockout:
+                            alert.message = "Too many failed attempts."
+                        case .userCancel:
+                            alert.message = "You cancelled the request"
+                        case .userFallback:
+                            alert.message = "Password not accepted, must use Touch-ID"
+                        default:
+                            alert.message = "Unable to Authenticate!"
+                    }
+                    
+                    //Show the alert
+                    DispatchQueue.main.async { [unowned self] in
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+            })
+        }
+        else {
+            //Unable to access local device authentication
+            
+            //Set the error title
+            alert.title = "Error"
+            //Set the error alert message with more information
+            switch ((touchIDError! as! LAError).code) {
+            case .touchIDNotEnrolled:
+                alert.message = "Touch ID is not enrolled"
+                
+            case .touchIDNotAvailable:
+                alert.message = "Touch ID is not available on the device"
+            case .passcodeNotSet:
+                alert.message = "Passcode has not been set"
+            case .invalidContext:
+                alert.message = "The context is invalid"
+            default:
+                alert.message = "Local Authentication not available"
+            }
+            
+            //Show the alert
+            DispatchQueue.main.async{ [unowned self] in
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     func shareMedia() {
