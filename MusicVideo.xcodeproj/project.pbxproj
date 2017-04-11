@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8647471C1D61D5CF002CAD34 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8647471B1D61D5CF002CAD34 /* Reachability.m */; };
 		866EEEC41D8AD37D005DBE43 /* MusicVideoTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866EEEC31D8AD37D005DBE43 /* MusicVideoTVC.swift */; };
+		868215E41E9CDFBE003B3EAC /* MyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868215E31E9CDFBE003B3EAC /* MyExtensions.swift */; };
 		8686AF5B1D2163A4000B2DB4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686AF5A1D2163A4000B2DB4 /* Constants.swift */; };
 		8686AF5D1D216583000B2DB4 /* MusicVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8686AF5C1D216583000B2DB4 /* MusicVideo.swift */; };
 		8688FBAD1DABB34800E8EF14 /* MusicVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8688FBAC1DABB34800E8EF14 /* MusicVideoTableViewCell.swift */; };
@@ -46,6 +47,7 @@
 		8647471A1D61D5CF002CAD34 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8647471B1D61D5CF002CAD34 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		866EEEC31D8AD37D005DBE43 /* MusicVideoTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTVC.swift; sourceTree = "<group>"; };
+		868215E31E9CDFBE003B3EAC /* MyExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyExtensions.swift; sourceTree = "<group>"; };
 		8686AF5A1D2163A4000B2DB4 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8686AF5C1D216583000B2DB4 /* MusicVideo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideo.swift; sourceTree = "<group>"; };
 		8688FBAC1DABB34800E8EF14 /* MusicVideoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicVideoTableViewCell.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				8688FBAC1DABB34800E8EF14 /* MusicVideoTableViewCell.swift */,
 				86C3005B1CE5F9E800A48DF2 /* ViewController.swift */,
 				86E2E9641E125012004112EA /* SettingTVC.swift */,
+				868215E31E9CDFBE003B3EAC /* MyExtensions.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				8686AF5D1D216583000B2DB4 /* MusicVideo.swift in Sources */,
 				8688FBAD1DABB34800E8EF14 /* MusicVideoTableViewCell.swift in Sources */,
 				86C3005A1CE5F9E800A48DF2 /* AppDelegate.swift in Sources */,
+				868215E41E9CDFBE003B3EAC /* MyExtensions.swift in Sources */,
 				86E2E9651E125012004112EA /* SettingTVC.swift in Sources */,
 				8647471C1D61D5CF002CAD34 /* Reachability.m in Sources */,
 				8686AF5B1D2163A4000B2DB4 /* Constants.swift in Sources */,
