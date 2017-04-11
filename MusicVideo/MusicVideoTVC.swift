@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MusicVideoTVC: UITableViewController {
+class MusicVideoTVC: UITableViewController, UISearchResultsUpdating {
 
     var videos = [Videos]()
     
@@ -54,7 +54,7 @@ class MusicVideoTVC: UITableViewController {
         
         // Setup the Search Controller
         
-        //resultSearchController.searchResultsUpdater = self
+        resultSearchController.searchResultsUpdater = self
         
         definesPresentationContext = true
         
@@ -92,7 +92,6 @@ class MusicVideoTVC: UITableViewController {
         
         DispatchQueue.main.async {
             
-        
         let alert = UIAlertController(title: "No InternetAccess", message: "Please make sure you are connected to the Internet", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) {
             action -> () in
@@ -125,7 +124,13 @@ class MusicVideoTVC: UITableViewController {
     
     @IBAction func refresh(_ sender: UIRefreshControl) {
         refreshControl?.endRefreshing()
-        runAPI()
+        
+        if resultSearchController.isActive {
+            refreshControl?.attributedTitle = NSAttributedString(string: "No refresh allowed in search")
+        }
+        else {
+            runAPI()
+        }
     }
     
     func getAPICount() {
@@ -243,4 +248,19 @@ class MusicVideoTVC: UITableViewController {
             }
         }
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        searchController.searchBar.text!.lowercased()
+        filterSearch(searchText: searchController.searchBar.text!)
+    }
+    
+    func filterSearch(searchText: String) {
+        filterSearch = videos.filter { videos in
+            return videos.vArtist.lowercased().contains(searchText.lowercased())
+            
+        }
+        tableView.reloadData()
+    }
+    
+    
 }
