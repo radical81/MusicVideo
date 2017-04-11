@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import LocalAuthentication
 
 class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
 
@@ -20,13 +21,15 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var feedbackDisplay: UILabel!
     @IBOutlet weak var numberOfVideosDisplay: UILabel!
     @IBOutlet weak var dragTheSliderDisplay: UILabel!
+    @IBOutlet var securityError: UILabel!
     
      override func viewDidLoad() {
         super.viewDidLoad()
         tableView.alwaysBounceVertical = false
         title = "settings"
         NotificationCenter.default.addObserver(self, selector: #selector(SettingTVC.preferredFontChanged), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
-        touchId.isOn = UserDefaults.standard.bool(forKey: "SecSetting")
+        
+        setTouchIdOnOff()
         
         if(UserDefaults.standard.object(forKey: "APICNT") != nil) {
             let theValue = UserDefaults.standard.object(forKey: "APICNT") as! Int
@@ -35,6 +38,33 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         } else {
             sliderCnt.value = 10.0
             APICnt.text = ("\(Int(sliderCnt.value))")
+        }
+    }
+    
+    func setTouchIdOnOff() {
+        let context = LAContext()
+        var touchIDError: NSError?
+        
+        if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &touchIDError) {
+            touchId.isOn = UserDefaults.standard.bool(forKey: "SecSetting")
+        }
+        else {
+            touchId.isEnabled = false
+            //Unable to access local device authentication
+            //Set the error  message with more information
+            switch ((touchIDError! as! LAError).code) {
+            case .touchIDNotEnrolled:
+                securityError.text = "Touch ID is not enrolled"
+                
+            case .touchIDNotAvailable:
+                securityError.text = "Touch ID is not available on the device"
+            case .passcodeNotSet:
+                securityError.text = "Passcode has not been set"
+            case .invalidContext:
+                securityError.text = "The context is invalid"
+            default:
+                securityError.text = "Local Authentication not available"
+            }
         }
     }
     

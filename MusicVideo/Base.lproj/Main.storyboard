@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dXh-5u-pH0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dXh-5u-pH0">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1iE-To-hzy" id="xbr-kR-43h">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RSC-1x-FvE">
@@ -182,11 +182,21 @@
                                                         <action selector="touchIdSecurity:" destination="e9s-01-VpN" eventType="valueChanged" id="N2n-rg-jWm"/>
                                                     </connections>
                                                 </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ku-35-l7m">
+                                                    <rect key="frame" x="19" y="55" width="481" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="RlA-CY-NY9" secondAttribute="trailing" constant="-6" id="1Wx-61-CR7"/>
+                                                <constraint firstItem="6ku-35-l7m" firstAttribute="bottom" secondItem="zoY-qD-GuT" secondAttribute="bottomMargin" id="Nxo-3Y-VQo"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6ku-35-l7m" secondAttribute="trailing" constant="78" id="T6E-b7-Obr"/>
                                                 <constraint firstItem="RlA-CY-NY9" firstAttribute="top" secondItem="zoY-qD-GuT" secondAttribute="topMargin" constant="18" id="YVC-7H-Hcx"/>
                                                 <constraint firstItem="yFb-W2-kJJ" firstAttribute="centerY" secondItem="RlA-CY-NY9" secondAttribute="centerY" id="fTj-jS-s4f"/>
+                                                <constraint firstItem="6ku-35-l7m" firstAttribute="leading" secondItem="zoY-qD-GuT" secondAttribute="leadingMargin" constant="11" id="qhn-9l-nCa"/>
+                                                <constraint firstItem="6ku-35-l7m" firstAttribute="top" secondItem="yFb-W2-kJJ" secondAttribute="bottom" constant="3" id="uuq-ad-fwS"/>
                                                 <constraint firstItem="yFb-W2-kJJ" firstAttribute="top" secondItem="zoY-qD-GuT" secondAttribute="topMargin" constant="23" id="w5k-YE-E9e"/>
                                                 <constraint firstItem="yFb-W2-kJJ" firstAttribute="leading" secondItem="zoY-qD-GuT" secondAttribute="leadingMargin" id="zhI-fQ-KZf"/>
                                             </constraints>
@@ -298,6 +308,7 @@
                         <outlet property="feedbackDisplay" destination="kVZ-G9-JkJ" id="Can-9p-mgH"/>
                         <outlet property="numberOfVideosDisplay" destination="zQG-Ko-Y0Y" id="67n-hh-i3o"/>
                         <outlet property="securityDisplay" destination="yFb-W2-kJJ" id="gOc-3Z-9u1"/>
+                        <outlet property="securityError" destination="6ku-35-l7m" id="8fh-GA-gnm"/>
                         <outlet property="sliderCnt" destination="ig9-MF-pv4" id="yAx-P1-eK1"/>
                         <outlet property="touchId" destination="RlA-CY-NY9" id="F4g-Ql-aKJ"/>
                     </connections>
