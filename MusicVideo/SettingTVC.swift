@@ -15,6 +15,7 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
     @IBOutlet weak var aboutDisplay: UILabel!
     @IBOutlet weak var sliderCnt: UISlider!
     @IBOutlet weak var APICnt: UILabel!
+    @IBOutlet weak var imageQuality: UISwitch!
     @IBOutlet weak var bestImageDisplay: UILabel!
     @IBOutlet weak var touchId: UISwitch!
     @IBOutlet weak var securityDisplay: UILabel!
@@ -30,7 +31,7 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(SettingTVC.preferredFontChanged), name: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil)
         
         setTouchIdOnOff()
-        
+        imageQuality.isOn = UserDefaults.standard.bool(forKey: "ImageQualitySetting")
         if(UserDefaults.standard.object(forKey: "APICNT") != nil) {
             let theValue = UserDefaults.standard.object(forKey: "APICNT") as! Int
             APICnt.text = "\(theValue)"
@@ -72,6 +73,16 @@ class SettingTVC: UITableViewController, MFMailComposeViewControllerDelegate {
         let defaults = UserDefaults.standard
         defaults.set(Int(sliderCnt.value), forKey: "APICNT")
         APICnt.text = ("\(Int(sliderCnt.value))")
+    }
+    
+    @IBAction func imageQuality(_ sender: UISwitch) {
+        let defaults = UserDefaults.standard
+        if imageQuality.isOn {
+            defaults.set(imageQuality.isOn, forKey: "ImageQualitySetting")
+        }
+        else {
+            defaults.set(false, forKey: "ImageQualitySetting")
+        }
     }
     
     @IBAction func touchIdSecurity(_ sender: UISwitch) {

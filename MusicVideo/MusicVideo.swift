@@ -116,7 +116,7 @@ class Videos {
         if let img = data["im:image"] as? JSONArray,
             let image = img[2] as? JSONDictionary,
             let immage = image["label"] as? String {
-            _vImageUrl = immage.replacingOccurrences(of: "100x100", with: "600x600")
+            _vImageUrl = immage
         }
         else
         {

@@ -39,11 +39,32 @@ class MusicVideoTableViewCell: UITableViewCell {
         }
     }
     
+    func generateImageSizeByNetwork() -> String {
+        switch reachabilityStatus {
+        case WIFI: return "600"
+        case WWAN: return "300"
+        default: return "100"
+        }
+    }
+    
+    func resetImageSizeInUrl(imgUrl: String, newSize: String) -> String {
+        NSLog("Image size %@", newSize)
+        return imgUrl.replacingOccurrences(of: "100x100", with: newSize + "x" + newSize)
+    }
+    
+    
     func GetVideoImage(_ video: Videos, imageView: UIImageView) {
         
         DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async {
-            let data = try? Data(contentsOf: URL(string: video.vImageUrl)!)
             
+            let imgQuality = UserDefaults.standard.bool(forKey: "ImageQualitySetting")
+            var imgUrl = video.vImageUrl
+            
+            if imgQuality {
+                imgUrl = self.resetImageSizeInUrl(imgUrl: imgUrl, newSize: self.generateImageSizeByNetwork())
+            }
+            
+            let data = try? Data(contentsOf: URL(string: imgUrl)!)
             var image: UIImage?
             if data != nil {
                 video.vImageData = data

@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1iE-To-hzy" id="xbr-kR-43h">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="132"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RSC-1x-FvE">
@@ -211,6 +211,9 @@
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M6r-b7-RjU">
                                                     <rect key="frame" x="535" y="31" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="imageQuality:" destination="e9s-01-VpN" eventType="valueChanged" id="w81-wH-sIu"/>
+                                                    </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Image Quality" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6i-qc-6YW">
                                                     <rect key="frame" x="8" y="26" width="150" height="41"/>
@@ -306,6 +309,7 @@
                         <outlet property="bestImageDisplay" destination="y6i-qc-6YW" id="pfE-W0-5hY"/>
                         <outlet property="dragTheSliderDisplay" destination="eLM-ZA-3Oi" id="VM6-lk-JHr"/>
                         <outlet property="feedbackDisplay" destination="kVZ-G9-JkJ" id="Can-9p-mgH"/>
+                        <outlet property="imageQuality" destination="M6r-b7-RjU" id="6kQ-4o-ApA"/>
                         <outlet property="numberOfVideosDisplay" destination="zQG-Ko-Y0Y" id="67n-hh-i3o"/>
                         <outlet property="securityDisplay" destination="yFb-W2-kJJ" id="gOc-3Z-9u1"/>
                         <outlet property="securityError" destination="6ku-35-l7m" id="8fh-GA-gnm"/>
